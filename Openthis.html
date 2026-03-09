@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Apology Card</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+font-family:'Poppins',sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:linear-gradient(#dbeeff,#f5fbff);
+overflow:hidden;
+text-align:center;
+}
+
+/* Intro text */
+
+h2{
+font-weight:500;
+margin-bottom:20px;
+}
+
+/* Button */
+
+button{
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:#4fa3ff;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+font-family:'Poppins',sans-serif;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+/* Apology card */
+
+.card{
+display:none;
+max-width:520px;
+padding:35px;
+margin-top:30px;
+border-radius:20px;
+background:#e8f4ff;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+text-align:left;
+line-height:1.7;
+font-size:16px;
+}
+
+/* Clouds */
+
+.cloud{
+position:absolute;
+font-size:40px;
+opacity:0.6;
+animation:cloudMove 60s linear infinite;
+}
+
+@keyframes cloudMove{
+from{transform:translateX(-10vw);}
+to{transform:translateX(110vw);}
+}
+
+/* Floating elements */
+
+.floating{
+position:absolute;
+animation:float 12s linear infinite;
+opacity:0.7;
+}
+
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
+}
+
+/* italic names */
+
+.name{
+font-style:italic;
+font-weight:500;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Heyoo! Optimus Prime, Kindly click on this button.</h2>
+
+<button onclick="showCard()">Click Here</button>
+
+<div class="card" id="apologyCard">
+
+<p><b>Dear <span class="name">Devansh</span>,</b></p>
+
+<p>
+I truly apologize for the mistake I have made and ask for your forgiveness.
+I know that my sorry cannot fix what happened, but I sincerely promise that
+I will never give you a reason to feel this way again.
+</p>
+
+<p>
+Yours,<br>
+<span class="name">Vandana</span>
+</p>
+
+</div>
+
+<script>
+
+function showCard(){
+document.getElementById("apologyCard").style.display="block";
+}
+
+/* clouds */
+
+for(let i=0;i<6;i++){
+let cloud=document.createElement("div");
+cloud.className="cloud";
+cloud.innerHTML="☁️";
+cloud.style.top=Math.random()*60+"vh";
+cloud.style.left=Math.random()*100+"vw";
+cloud.style.fontSize=(30+Math.random()*40)+"px";
+document.body.appendChild(cloud);
+}
+
+/* snowflakes and cars */
+
+const symbols=["❄️","🚗"];
+
+for(let i=0;i<25;i++){
+let item=document.createElement("div");
+item.className="floating";
+item.innerHTML=symbols[Math.floor(Math.random()*symbols.length)];
+
+item.style.left=Math.random()*100+"vw";
+item.style.fontSize=(15+Math.random()*18)+"px";
+item.style.animationDuration=(8+Math.random()*10)+"s";
+
+document.body.appendChild(item);
+}
+
+</script>
+
+</body>
+</html>
